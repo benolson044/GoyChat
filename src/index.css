@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-crimson: #FF0000;
+  --color-void: #000000;
+  --color-ash: #808080;
+  --color-rust: #8B0000;
+}
+
+@layer base {
+  body {
+    @apply bg-void text-white font-sans antialiased overflow-hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-void;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-crimson/20 hover:bg-crimson/50 transition-colors;
+}
+
+.brutalist-border {
+  @apply border border-crimson/20;
+}
+
+.brutalist-border-r {
+  @apply border-r border-crimson/20;
+}
+
+.brutalist-border-b {
+  @apply border-b border-crimson/20;
+}
+
+.glass-panel {
+  @apply bg-ash/50 backdrop-blur-md;
+}

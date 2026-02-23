@@ -1,0 +1,5 @@
+{
+  "name": "GoyChat",
+  "description": "A high-performance, real-time communication platform with a brutalist black and red aesthetic.",
+  "requestFramePermissions": ["microphone"]
+}

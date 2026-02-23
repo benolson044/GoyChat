@@ -1,0 +1,17 @@
+import React from 'react';
+import { Hash } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+export default function App() {
+  return (
+    <div className="flex h-screen w-full bg-black items-center justify-center text-red-600 font-bold text-4xl gap-4">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+      >
+        <Hash size={48} />
+      </motion.div>
+      GOYCHAT_MINIMAL_MOTION
+    </div>
+  );
+}

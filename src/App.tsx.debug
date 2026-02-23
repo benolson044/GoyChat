@@ -1,0 +1,9 @@
+import React from 'react';
+
+export default function App() {
+  return (
+    <div className="flex h-screen w-full bg-black items-center justify-center text-red-600 font-bold text-4xl">
+      GOYCHAT_DEBUG_MODE
+    </div>
+  );
+}
