@@ -4,10 +4,20 @@ import { Server } from 'socket.io';
 import { createServer as createViteServer } from 'vite';
 import Database from 'better-sqlite3';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Ensure database directory exists
 const dbPath = process.env.DATABASE_URL || 'void.db';
+const dbDir = path.dirname(dbPath);
+if (dbDir !== '.' && !fs.existsSync(dbDir)) {
+  console.log(`Creating database directory: ${dbDir}`);
+  fs.mkdirSync(dbDir, { recursive: true });
+}
+
+console.log(`Opening database at: ${dbPath}`);
 const db = new Database(dbPath);
 
 // Initialize Database
@@ -54,6 +64,9 @@ async function startServer() {
   });
 
   app.use(express.json());
+
+  // Health check for Fly.io
+  app.get('/health', (req, res) => res.status(200).send('OK'));
 
   // API Routes
   app.get('/api/servers', (req, res) => {
